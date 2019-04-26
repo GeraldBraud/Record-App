@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    //Youtube tutorial helped with initial set up
+    //"Android Development Tutorial - Audio Recorder" by EDMT Dev
+    <TextView
+        android:text="Record set up"
+        android:textSize="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/file_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:orientation="horizontal">
+        <Button
+            android:id="@+id/record_button"
+            android:text="Record"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+       <Button
+           android:id="@+id/stop_button"
+           android:text="Stop"
+           android:textSize="20dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+
+    <Button
+        android:id="@+id/save_recording"
+        android:text="Save"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+       <TextView
+           android:text="Playback options:"
+           android:textSize="24dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/play_recording"
+            android:text="Play"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/stop_play"
+        android:text="Stop"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+</LinearLayout>
