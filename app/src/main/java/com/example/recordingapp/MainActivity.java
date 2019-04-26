@@ -59,38 +59,53 @@ public class MainActivity extends AppCompatActivity {
 
         if(checkPermissionFromDevice()){
 
+            //Checks for save file and disables and enables buttons
+            if(savePath == null){
+                RecordButton.setEnabled(true);
+                StopButton.setEnabled(false);
+                SaveButton.setEnabled(false);
+                PlayButton.setEnabled(false);
+            }
+
+            //The recording button will store audio information and then turn on disabled buttons
+            // that need to be used to stop recording
            RecordButton.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    boolean mStart = true;
-                   //savePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
-                          // + UUID.randomUUID().toString()+ nameOfFile + ".mp3";
+                   savePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
+                          + UUID.randomUUID().toString()+ nameOfFile + ".mp3";
                    onRecord(mStart);
                    if(mStart == true){
                       //Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
                    } else {
                        //Toast.makeText(this, "Sopped recording", Toast.LENGTH_SHORT).show();
                    }
-                   mStart = !mStart;
-
+                   //mStart = !mStart;
+                   RecordButton.setEnabled(false);
                    PlayButton.setEnabled(false);
-                   //StopButton.setEnabled(false);
+                   StopButton.setEnabled(true);
                }
            });
+
+            //Function of the StopButton when it is pressed
            StopButton.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    mediaRecorder.stop();
+                   SaveButton.setEnabled(true);
                    PlayButton.setEnabled(true);
                    RecordButton.setEnabled(true);
                    StopButton.setEnabled(false);
                }
            });
+
            SaveButton.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    savePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
                     + UUID.randomUUID().toString()+ nameOfFile + ".mp3";
+                   RecordButton.setEnabled(true);
                }
            });
            PlayButton.setOnClickListener(new View.OnClickListener() {
